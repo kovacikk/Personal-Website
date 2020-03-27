@@ -1,21 +1,39 @@
 const express = require('express')
 const app = express()
 const port = 8082
+const https = require('https')
 
 const path = require('path');
-app.use(Express.static(__dirname+'/'));
+app.use(express.static(__dirname+'/'));
+app.use(express.json());
+app.use(express.urlencoded({
+	extended: true;
+}));
+
+var memory = "Nothing";
 
 //Default
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => res.send('Hello World!\n'))
 
-//Spaghetti
+//spaghetti
 app.get('/spaghetti', function(req, res) {
-	res.send('You are now accessing the spaghetti page!')
+	res.send('You are now accessing the spaghetti page!\n')
 })
 
-//Fish
+//fish
 app.get('/fish', function(req, res) {
 	res.sendFile(path.join(__dirname+'/html/fish.html'));
+})
+
+//getMessage
+app.get('/getMessage', function(req, res) {
+	res.send(memory+'\n');
+})
+
+//setMessage
+app.post('/setMessage', function (req, res) {
+	memory = req.body.message;
+	res.send('POST request\n\"' + memory + "\" recieved!\n");
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
