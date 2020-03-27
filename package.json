@@ -1,0 +1,22 @@
+{
+  "name": "server-kubernetes-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kovacikk/Server-Kubernetes-Test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kovacikk/Server-Kubernetes-Test/issues"
+  },
+  "homepage": "https://github.com/kovacikk/Server-Kubernetes-Test#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
