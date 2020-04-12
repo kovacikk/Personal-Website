@@ -27,6 +27,11 @@ app.get('/fish', function(req, res) {
 	res.sendFile(path.join(__dirname+'/html/fish.html'));
 })
 
+//fileUpload
+app.get('/fileupload', function(req, res) {
+	res.sendFile(path.join(__dirname+'/html/fileupload.html'));
+})
+
 //getMessage
 app.get('/getMessage', function(req, res) {
 	res.send(memory+'\n');
