@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const port = 8080
 const https = require('https')
+var formidable = require('formidable')
+var fs = require('fs')
 
 var gamerTime = require('./utils.js');
 
@@ -27,9 +29,46 @@ app.get('/fish', function(req, res) {
 	res.sendFile(path.join(__dirname+'/html/fish.html'));
 })
 
+//getDate
+app.get('/time', function(req, res) {
+	var date = new Date();
+	res.send(date.toLocaleTimeString());
+})
+
+//fileRequest
+app.get('/fileRequest', function(req, res) {
+	res.sendFile(path.join(__dirname+'/html/fileRequest.html'));
+})
+
 //fileUpload
-app.get('/fileupload', function(req, res) {
-	res.sendFile(path.join(__dirname+'/html/fileupload.html'));
+app.post('/fileUpload', function(req, res) {
+	var form = new formidable.IncomingForm();
+	form.parse(req, function(err, fields, files) {
+
+		var date = new Date().toISOString().slice(0,10);
+
+		var oldpath = files.filetoupload.path;
+
+		var dir = path.join(__dirname + '/filesUploaded/' + date + '/');
+		
+		fs.mkdir(dir, function(err) {
+			//Directory already exists
+			if(err) {
+				if (err.code == 'EEXIST') cb(null);
+				else cb(err);
+			}
+		});
+
+		fs.rename(oldpath, path.join(__dirname+'/filesUploaded/'+ date + '/' + files.filetoupload.name), function(err) {
+			if (err) throw err;
+			res.write('File uploaded and moved!');
+			res.end();
+		});
+
+		//res.send("File Uploaded\n");
+		//res.end();
+	});
+
 })
 
 //getMessage
