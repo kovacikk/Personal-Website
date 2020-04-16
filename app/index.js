@@ -97,7 +97,7 @@ app.get('/api/hello', function(req, res) {
 app.post('/api/world', function(req, res) {
 	console.log(req.body);
 	res.send(
-		'This is what was sent: ${req.body.post}',
+		'This is what was sent: ' + req.body.post
 	);
 })
 
