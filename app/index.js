@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 8080
+const port = 6225
 const https = require('https')
 var formidable = require('formidable')
 var fs = require('fs')
@@ -48,9 +48,11 @@ app.post('/fileUpload', function(req, res) {
 		var date = new Date().toISOString().slice(0,10);
 
 		var oldpath = files.filetoupload.path;
-
+		
+		//Directory file will be uploaded to
 		var dir = path.join(__dirname + '/filesUploaded/' + date + '/');
 		
+		//Make directory if it doesn't already exist
 		fs.mkdir(dir, function(err) {
 			//Directory already exists
 			if(err) {
@@ -59,6 +61,7 @@ app.post('/fileUpload', function(req, res) {
 			}
 		});
 
+		//Store uploaded file to 
 		fs.rename(oldpath, path.join(__dirname+'/filesUploaded/'+ date + '/' + files.filetoupload.name), function(err) {
 			if (err) throw err;
 			res.write('File uploaded and moved!');
@@ -85,6 +88,17 @@ app.post('/setMessage', function (req, res) {
 app.get('/gamer', function(req, res) {
 	var gamer = gamerTime.gamerTime()
 	res.send(gamer);
+})
+
+app.get('/api/hello', function(req, res) {
+	res.send({express: 'Hello From Express' });
+})
+
+app.post('/api/world', function(req, res) {
+	console.log(req.body);
+	res.send(
+		'This is what was sent: ${req.body.post}',
+	);
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
