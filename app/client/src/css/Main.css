@@ -1,10 +1,7 @@
-body {
+#lowBody {
 	text-align: center;
-	margin-left: 74px;
-	background: linear-gradient(white, grey);
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	overflow: hidden;
+	margin-left: 148px;
+	
 }
 
 #header p {
@@ -35,7 +32,7 @@ body {
 	z-index: 1;
 	top: 0;
 	left: 0;
-	overflow-x: hidden;
+	
 	margin-top: 60px;
 	padding-top: 10px;
 	padding-bottom: 10px;

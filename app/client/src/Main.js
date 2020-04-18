@@ -1,5 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './css/Main.css';
+
+class Paragraph extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            text: this.props.text,
+        };
+    }
+
+    render() {
+        return (
+            <div>
+                <p>{this.state.text}</p>
+            </div>
+        );
+    }
+}
 
 class Main extends Component {
     constructor(props) {
@@ -9,6 +26,17 @@ class Main extends Component {
         };
     }
 
+    testParagraphs() {
+        let objectP = []
+        for (let i = 0; i < 10; i++) {
+            let text = "Gamer" + i;
+            objectP.push(<Paragraph text={text}></Paragraph>)
+        }
+        return (
+            <Fragment>{objectP}</Fragment>
+        );
+    }
+
     render() {
         return(
             //Main body of HTML
@@ -16,7 +44,7 @@ class Main extends Component {
                 <head>
                     <link href="https://fonts.googleapis.com/css?family=Spectral" rel="stylesheet"></link>
                 </head>
-                <body>
+                <body id="lowBody">
                     <div id="header">
                         <p>Kyle Website</p>
                     </div>
@@ -36,6 +64,7 @@ class Main extends Component {
 				            <h3>Kyle Website</h3>
 				            <p>Here at Kyle Website, you can learn all about Kyle. You can learn about all of his exploits and how to contact him. There will even be a message board coming soon!!!</p>
 			            </div>
+                        {this.testParagraphs()}
                     </div>
                     <div id="bar"></div>
 		            <div id="footer">
