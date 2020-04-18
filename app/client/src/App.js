@@ -1,77 +1,89 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import './css/App.css';
+import Main from './js/Main';
 
-import logo from './logo.svg';
+class Paragraph extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            text: this.props.text,
+        };
+    }
 
-import './App.css';
+    render() {
+        return (
+            <div>
+                <p>{this.state.text}</p>
+            </div>
+        );
+    }
+}
 
 class App extends Component {
-  state = {
-    response: '',
-    post: '',
-    responseToPost: '',
-  };
-  
-  componentDidMount() {
-    this.callApi()
-      .then(res => this.setState({ response: res.express }))
-      .catch(err => console.log(err));
-  }
-  
-  callApi = async () => {
-    const response = await fetch('/api/hello');
-    const body = await response.json();
-    if (response.status !== 200) throw Error(body.message);
-    
-    return body;
-  };
-  
-  handleSubmit = async e => {
-    e.preventDefault();
-    const response = await fetch('/api/world', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ post: this.state.post }),
-    });
-    const body = await response.text();
-    
-    this.setState({ responseToPost: body });
-  };
-  
-render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-        <p>{this.state.response}</p>
-        <form onSubmit={this.handleSubmit}>
-          <p>
-            <strong>Post to Server:</strong>
-          </p>
-          <input
-            type="text"
-            value={this.state.post}
-            onChange={e => this.setState({ post: e.target.value })}
-          />
-          <button type="submit">Submit</button>
-        </form>
-        <p>{this.state.responseToPost}</p>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            page: "main",
+        };
+    }
+
+    testParagraphs() {
+        let objectP = []
+        for (let i = 0; i < 10; i++) {
+            let text = "Gamer" + i;
+            objectP.push(<Paragraph text={text}></Paragraph>)
+        }
+        return (
+            <Fragment>{objectP}</Fragment>
+        );
+    }
+
+    render() {
+        var midContent;
+
+        if (this.state.page === "main") {
+            midContent = <Main></Main>;
+        }
+
+        return(
+            //Main body of HTML
+            <html lang="en">
+                <head>
+                    <link href="https://fonts.googleapis.com/css?family=Spectral" rel="stylesheet"></link>
+                </head>
+                <body id="lowBody">
+                    <div id="header">
+                        <p>Kyle Website</p>
+                    </div>
+
+                    <div id="bar"></div>
+                    <div id="midSection">
+                        <ul id="sidebar">
+                            <li>
+                                <button onClick={() => {this.setState({page: "main"})}}>Main</button>
+                            </li>
+                            <li>
+                                <button onClick={() => {this.setState({page: "about"})}}>About</button>
+                            </li>
+                            <li>
+                                <button onClick={() => {this.setState({page: "forum"})}}>Forum</button>
+                            </li>
+                            <li>
+                                <button onClick={() => {this.setState({page: "contact"})}}>Contact Information</button>
+                            </li>
+			            </ul>
+			            <div id="main">
+                            {midContent}
+			            </div>
+                    </div>
+                    <div id="bar"></div>
+		            <div id="footer">
+			            <p>To learn more about Kyle, visit his github and Linkedin pages in the Contact Information tab</p>
+		            </div>
+                </body>
+            </html>
+        );
+    }
 }
 
 export default App;
