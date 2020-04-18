@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import '../css/Main.css';
+import '../css/Home.css';
 
-class Main extends Component {
+class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,4 +22,4 @@ class Main extends Component {
     }
 }
 
-export default Main;
+export default Home;

@@ -7,10 +7,11 @@ import {
   } from "react-router-dom";
 
 import './css/App.css';
-import Main from './js/Main.js';
+import Home from './js/Home.js';
 import About from './js/About.js';
 import Forum from './js/Forum.js';
 import Contact from './js/Contact.js';
+import Python from './js/Python';
 
 class Paragraph extends Component {
     constructor(props) {
@@ -67,7 +68,7 @@ class App extends Component {
                     <div id="midSection">
                         <ul id="sidebar">
                             <li>
-                                <Link to="/"><button>Main</button></Link>
+                                <Link to="/"><button>Home</button></Link>
                             </li>
                             <li>
                                 <Link to="/about"><button>About</button></Link>
@@ -77,6 +78,9 @@ class App extends Component {
                             </li>
                             <li>
                                 <Link to="/contact"><button>Contact Information</button></Link>
+                            </li>
+                            <li>
+                                <Link to="/python"><button>Python</button></Link>
                             </li>
 			            </ul>
 			            <div id="main">
@@ -90,8 +94,11 @@ class App extends Component {
                                 <Route path="/contact">
                                     <Contact/>
                                 </Route>
+                                <Route path="/python">
+                                    <Python/>
+                                </Route>
                                 <Route path="/">
-                                    <Main />
+                                    <Home />
                                 </Route>
                             </Switch>
 			            </div>
@@ -100,7 +107,7 @@ class App extends Component {
 		            <div id="footer">
 			            <p>To learn more about Kyle, visit his github and Linkedin pages in the Contact Information tab</p>
 		            </div>
-                    </Router>>
+                    </Router>
                 </body>
             </html>
         );
