@@ -7,6 +7,8 @@ var fs = require('fs')
 
 var gamerTime = require('./utils.js');
 
+const {spawn} = require('child_process');
+
 const path = require('path');
 app.use(express.static(__dirname+'/'));
 app.use(express.json());
@@ -99,6 +101,23 @@ app.post('/api/world', function(req, res) {
 	res.send(
 		'This is what was sent: ' + req.body.post
 	);
+})
+
+app.get('/python/', function(req, res) {
+	var pythonData;
+	const python = spawn('python', [path.join(__dirname+'/python/script.py')]);
+
+	python.stdout.on('data', function(data) {
+
+		console.log('Pipe data from python script ...');
+		pythonData = data.toString();
+	});
+
+	python.on('close', function(code) {
+		console.log('child process close all stdio with code ' + code);
+
+		res.send(pythonData);
+	});
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
