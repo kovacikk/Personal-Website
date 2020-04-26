@@ -11,7 +11,8 @@ import Home from './js/Home.js';
 import About from './js/About.js';
 import Forum from './js/Forum.js';
 import Contact from './js/Contact.js';
-import Python from './js/Python';
+import Python from './js/Python.js';
+import Plot from './js/Plot.js';
 
 class Paragraph extends Component {
     constructor(props) {
@@ -82,6 +83,9 @@ class App extends Component {
                             <li>
                                 <Link to="/python"><button>Python</button></Link>
                             </li>
+                            <li>
+                                <Link to="/plot"><button>Plot</button></Link>
+                            </li>
 			            </ul>
 			            <div id="main">
                             <Switch>
@@ -96,6 +100,9 @@ class App extends Component {
                                 </Route>
                                 <Route path="/python">
                                     <Python/>
+                                </Route>
+                                <Route path="/plot">
+                                    <Plot/>
                                 </Route>
                                 <Route path="/">
                                     <Home />

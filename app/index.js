@@ -16,6 +16,12 @@ app.use(express.urlencoded({
 	extended: true
 }));
 
+express.static("images");
+app.use(express.static('images'))
+
+express.static("python/plots")
+app.use(express.static("python/plots"))
+
 var memory = "Nothing";
 
 //Default
@@ -115,9 +121,25 @@ app.get('/python/', function(req, res) {
 
 	python.on('close', function(code) {
 		console.log('child process close all stdio with code ' + code);
-
-		res.send(pythonData);
+		res.send({express: pythonData});
 	});
+})
+
+app.get('/plot/', function(req, res) {
+	var pythonData;
+	const python = spawn('py2', [path.join(__dirname+'/python/plot.py')]);
+
+	python.stdout.on('data', function(data) {
+		console.log('Pipe data from python script ...');
+		pythonData = data.toString();
+	});
+
+	python.on('close', function(code) {
+		console.log('child process close all stdio with code ' + code);
+		res.send({express: pythonData});
+	});
+
+	//console.log(python);
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
