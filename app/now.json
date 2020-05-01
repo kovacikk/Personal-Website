@@ -1,12 +1,13 @@
 {
     "version": 2,
     "public": false,
-    "builds": [{"src": "index.js", "use": "@now/node-server"}],
+    "builds": [
+      { "src": "package.json", "use": "@now/node-server" },
+      { "src": "./server/index.js", "use": "@now/node-server" }
+    ],
     "routes": [
-        {
-            "src": "/.*",
-            "dest": "/index.js",
-            "methods": ["GET"]
-        }
+        { "src": "/server/.*", "dest": "/server/index.js" },
+    { "src": "^/static/(.*)", "dest": "/static/$1" },
+    { "src": ".*", "dest": "index.html" }
     ]
-  }
+}
