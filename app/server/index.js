@@ -25,31 +25,31 @@ app.use(express.static("python/plots"))
 var memory = "Nothing";
 
 //Default
-app.get('/', (req, res) => res.send('Hello World!\n'))
+app.get('/server/', (req, res) => res.send('Hello World!\n'))
 
 //spaghetti
-app.get('/spaghetti', function(req, res) {
+app.get('/server/spaghetti', function(req, res) {
 	res.send('You are now accessing the spaghetti page!\n')
 })
 
 //fishW
-app.get('/fish', function(req, res) {
+app.get('/server/fish', function(req, res) {
 	res.sendFile(path.join(__dirname+'/html/fish.html'));
 })
 
 //getDate
-app.get('/time', function(req, res) {
+app.get('/server/time', function(req, res) {
 	var date = new Date();
 	res.send(date.toLocaleTimeString());
 })
 
 //fileRequest
-app.get('/fileRequest', function(req, res) {
+app.get('/server/fileRequest', function(req, res) {
 	res.sendFile(path.join(__dirname+'/html/fileRequest.html'));
 })
 
 //fileUpload
-app.post('/fileUpload', function(req, res) {
+app.post('/server/fileUpload', function(req, res) {
 	var form = new formidable.IncomingForm();
 	form.parse(req, function(err, fields, files) {
 
@@ -83,33 +83,33 @@ app.post('/fileUpload', function(req, res) {
 })
 
 //getMessage
-app.get('/getMessage', function(req, res) {
+app.get('/server/getMessage', function(req, res) {
 	res.send(memory+'\n');
 })
 
 //setMessage
-app.post('/setMessage', function (req, res) {
+app.post('/server/setMessage', function (req, res) {
 	memory = req.body.message;
 	res.send('POST request\n\"' + memory + "\" recieved!\n");
 })
 
-app.get('/gamer', function(req, res) {
+app.get('/server/gamer', function(req, res) {
 	var gamer = gamerTime.gamerTime()
 	res.send(gamer);
 })
 
-app.get('/api/hello', function(req, res) {
+app.get('/server/api/hello', function(req, res) {
 	res.send({express: 'Hello From Express' });
 })
 
-app.post('/api/world', function(req, res) {
+app.post('/server/api/world', function(req, res) {
 	console.log(req.body);
 	res.send(
 		'This is what was sent: ' + req.body.post
 	);
 })
 
-app.get('/python/', function(req, res) {
+app.get('/server/python/', function(req, res) {
 	var pythonData;
 	const python = spawn('python', [path.join(__dirname+'/python/script.py')]);
 
@@ -125,7 +125,7 @@ app.get('/python/', function(req, res) {
 	});
 })
 
-app.get('/plot/', function(req, res) {
+app.get('/server/plot/', function(req, res) {
 	var pythonData;
 	const python = spawn('py2', [path.join(__dirname+'/python/plot.py')]);
 

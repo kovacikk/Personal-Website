@@ -11,8 +11,12 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.1"
   },
+  "devDependencies": {
+    "concurrently": "^4.1.2"
+  },
   "scripts": {
     "start": "react-scripts start",
+    "dev": "concurrently --kill-others-on-fail \"react-scripts start\" \"cd server && node index.js\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
