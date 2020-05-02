@@ -24,8 +24,6 @@ app.use(express.static("python/plots"))
 
 var memory = "Nothing";
 
-//Default
-app.get('/server/', (req, res) => res.send('Hello World!\n'))
 
 //spaghetti
 app.get('/server/spaghetti', function(req, res) {
@@ -98,48 +96,16 @@ app.get('/server/gamer', function(req, res) {
 	res.send(gamer);
 })
 
-app.get('/server/api/hello', function(req, res) {
+app.get('/server/', function(req, res) {
 	res.send({express: 'Hello From Express' });
 })
 
-app.post('/server/api/world', function(req, res) {
+app.post('/server/message/', function(req, res) {
 	console.log(req.body);
 	res.send(
 		'This is what was sent: ' + req.body.post
 	);
 })
 
-app.get('/server/python/', function(req, res) {
-	var pythonData;
-	const python = spawn('python', [path.join(__dirname+'/python/script.py')]);
-
-	python.stdout.on('data', function(data) {
-
-		console.log('Pipe data from python script ...');
-		pythonData = data.toString();
-	});
-
-	python.on('close', function(code) {
-		console.log('child process close all stdio with code ' + code);
-		res.send({express: pythonData});
-	});
-})
-
-app.get('/server/plot/', function(req, res) {
-	var pythonData;
-	const python = spawn('py2', [path.join(__dirname+'/python/plot.py')]);
-
-	python.stdout.on('data', function(data) {
-		console.log('Pipe data from python script ...');
-		pythonData = data.toString();
-	});
-
-	python.on('close', function(code) {
-		console.log('child process close all stdio with code ' + code);
-		res.send({express: pythonData});
-	});
-
-	//console.log(python);
-})
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

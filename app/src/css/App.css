@@ -1,7 +1,11 @@
 #lowBody {
 	text-align: center;
-	margin-left: 148px;
-	
+	margin-left: 15.5vw;
+	height: 100%;
+	width: 80vw;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0;
 }
 
 #header {
@@ -19,6 +23,12 @@
 	margin-bottom: 4px;
 	
 	border: 1px solid white;
+}
+
+#notFooter {
+	min-height: 100%;
+	margin-bottom: -60px;
+	position: relative;
 }
 
 #bar {
@@ -50,7 +60,7 @@ li {
 #sidebar {
 	background-color: #444444;
 	
-	width: 140px;
+	width: 11vw;
 	position: fixed;
 	z-index: 1;
 	top: 0;
@@ -91,7 +101,35 @@ li {
 }
 
 #footer {
-	padding-top: 10px;
+	height: 50px;
+	position: relative;
 	font-size: 14px;
 	font-style: italic;
+	padding-top: 10px;
+	margin-bottom: 3.25vh;
 }
+
+body {
+	height:100%;
+}
+
+#clearFooter {
+	height: 50px;
+	clear: both;
+}
+
+
+#mainhtml {
+	
+
+	
+}
+
+#lowhtml {
+	margin: 0;
+	padding: 0;
+	height: 96.8vh;
+}
+
+html, body, #lowhtml {margin:0; padding:0}
+h1,p, #lowhtml {margin:0 0 1em}

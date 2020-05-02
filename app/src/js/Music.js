@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import '../css/Plot.css';
+import '../css/Music.css';
 
-class Plot extends Component {
+class Music extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -16,7 +16,7 @@ class Plot extends Component {
     }
 
     callServer = async () => {
-        const response = await fetch('/plot');
+        const response = await fetch('/music');
         const body = await response.json();
 
         if (response.status !== 200) throw Error(body.message);
@@ -27,7 +27,7 @@ class Plot extends Component {
 
         return (
             <div>
-                <h3>Python Time!</h3>
+                <h3>Music Time!</h3>
                 <p>{this.state.response}</p>
                 <img src={this.state.response}></img>
             </div>
@@ -35,4 +35,4 @@ class Plot extends Component {
     }
 }
 
-export default Plot;
+export default Music;

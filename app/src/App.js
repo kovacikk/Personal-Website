@@ -11,8 +11,8 @@ import Home from './js/Home.js';
 import About from './js/About.js';
 import Forum from './js/Forum.js';
 import Contact from './js/Contact.js';
-import Python from './js/Python.js';
-import Plot from './js/Plot.js';
+import Server from './js/Server.js';
+import Music from './js/Music.js';
 
 class Paragraph extends Component {
     constructor(props) {
@@ -56,17 +56,19 @@ class App extends Component {
             
             //Main body of HTML
             <html lang="en">
+                <div id="lowhtml">
+                <body id="lowBody">
                 <head>
                     <link href="https://fonts.googleapis.com/css?family=Spectral" rel="stylesheet"></link>
                 </head>
-                <body id="lowBody">
+                    <div id="notFooter">
                     <Router>
                     <div id="header">
                         <p>Kyle Website</p>
                     </div>
 
                     <div id="bar"></div>
-                    <div id="midSection">
+                        <div id="midSection">
                         <ul id="sidebar">
                             <li>
                                 <Link to="/"><button>Home</button></Link>
@@ -81,10 +83,10 @@ class App extends Component {
                                 <Link to="/contact"><button>Contact Information</button></Link>
                             </li>
                             <li>
-                                <Link to="/python"><button>Python</button></Link>
+                                <Link to="/server/"><button>Server</button></Link>
                             </li>
                             <li>
-                                <Link to="/plot"><button>Plot</button></Link>
+                                <Link to="/music"><button>Music</button></Link>
                             </li>
 			            </ul>
 			            <div id="main">
@@ -98,27 +100,33 @@ class App extends Component {
                                 <Route path="/contact">
                                     <Contact/>
                                 </Route>
-                                <Route path="/python">
-                                    <Python/>
+                                <Route path="/server/">
+                                    <Server/>
                                 </Route>
-                                <Route path="/plot">
-                                    <Plot/>
+                                <Route path="/music">
+                                    <Music/>
                                 </Route>
                                 <Route path="/">
-                                    <Home />
+                                    <Home /><Home /><Home /><Home /><Home />
                                 </Route>
                             </Switch>
 			            </div>
                     </div>
-                    <div id="bar"></div>
+                    </Router>
+                    <div id="clearFooter">
+                        
+                    </div>
+                    </div>
 		            <div id="footer">
+                        <div id="bar"></div>
 			            <p>To learn more about Kyle, visit his github and Linkedin pages in the Contact Information tab</p>
 		            </div>
-                    </Router>
                 </body>
+                </div>
             </html>
         );
     }
 }
 
 export default App;
+
