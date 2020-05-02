@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-//import '../css/Server.css';
+//import '../css/Serve.css';
 
-class Server extends Component {
+class Serve extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -59,4 +59,4 @@ class Server extends Component {
     }
 }
 
-export default Server;
+export default Serve;

@@ -5,6 +5,9 @@ const https = require('https')
 var formidable = require('formidable')
 var fs = require('fs')
 
+var ReactDOMServer = require('react-dom/server');
+
+
 var gamerTime = require('./utils.js');
 
 const {spawn} = require('child_process');
@@ -107,5 +110,69 @@ app.post('/server/message/', function(req, res) {
 	);
 })
 
+class LinkedListNode {
+	constructor(message) {
+		this.message = message;
+		this.next = null;
+		this.prev = null;
+	}
+}
+
+var chatHead = null;
+var chatLength = 0;
+var counter = 0;
+
+function addChat(message) {
+	if (chatLength != 50) {
+		if (chatHead == null) {
+			const head = new LinkedListNode(counter + ": " + message + "\n");
+			head.next = head;
+			head.prev = head;
+
+			chatHead = head;
+		}
+		else {
+			const newNode = new LinkedListNode(counter + ": " + message + "\n");
+			newNode.prev = chatHead.prev;
+			newNode.next = chatHead;
+			chatHead.prev.next = newNode;
+			chatHead.prev = newNode;			
+		}
+		counter++;
+		chatLength++;
+	}else {
+		const newNode = new LinkedListNode(counter + ": " + message + "\n");
+		newNode.prev = chatHead.prev;
+		chatHead.prev.next = newNode;
+		newNode.next = chatHead.next;
+		chatHead.next.prev = newNode;
+
+		counter++;
+	}
+}
+
+function readChat() {
+	var result = "";
+
+	var next = chatHead;
+	if (next != null) {
+		while (next.next != chatHead) {
+			result = result + next.message;
+			next = next.next;
+		}
+		result = result + next.message
+	}
+	return result;
+}
+
+app.post('/server/chat/', function(req, res) {
+	console.log(req.body);
+
+	addChat(req.body.post);
+
+	var test = readChat();
+	res.set('Content-Type', 'text/html');
+	res.send( new Buffer('<h2>' + test + "</h2>"));
+})
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

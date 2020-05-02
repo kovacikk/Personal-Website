@@ -11,7 +11,7 @@ import Home from './js/Home.js';
 import About from './js/About.js';
 import Forum from './js/Forum.js';
 import Contact from './js/Contact.js';
-import Server from './js/Server.js';
+import Serve from './js/Serve.js';
 import Music from './js/Music.js';
 
 class Paragraph extends Component {
@@ -101,7 +101,7 @@ class App extends Component {
                                     <Contact/>
                                 </Route>
                                 <Route path="/serve/">
-                                    <Server/>
+                                    <Serve/>
                                 </Route>
                                 <Route path="/music">
                                     <Music/>
