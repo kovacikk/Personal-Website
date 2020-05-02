@@ -83,7 +83,7 @@ class App extends Component {
                                 <Link to="/contact"><button>Contact Information</button></Link>
                             </li>
                             <li>
-                                <Link to="/server/"><button>Server</button></Link>
+                                <Link to="/serve/"><button>Server</button></Link>
                             </li>
                             <li>
                                 <Link to="/music"><button>Music</button></Link>
@@ -100,14 +100,14 @@ class App extends Component {
                                 <Route path="/contact">
                                     <Contact/>
                                 </Route>
-                                <Route path="/server/">
+                                <Route path="/serve/">
                                     <Server/>
                                 </Route>
                                 <Route path="/music">
                                     <Music/>
                                 </Route>
                                 <Route path="/">
-                                    <Home /><Home /><Home /><Home /><Home />
+                                    <Home />
                                 </Route>
                             </Switch>
 			            </div>
