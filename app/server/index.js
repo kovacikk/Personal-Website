@@ -4,6 +4,7 @@ const port = 6225
 const https = require('https')
 var formidable = require('formidable')
 var fs = require('fs')
+var lineReader = require('line-reader')
 
 var ReactDOMServer = require('react-dom/server');
 
@@ -173,6 +174,83 @@ app.post('/server/chat/', function(req, res) {
 	var test = readChat();
 	res.set('Content-Type', 'text/html');
 	res.send( new Buffer('<h2>' + test + "</h2>"));
+})
+
+app.post('/server/chat2/', function(req,res) {
+
+	fs.mkdir('./savedMessages/', { recursive: true }, (err) => {
+		if (err) throw err;
+	});
+
+	var test = ""
+
+	var lineCount = 0;
+
+	lineReader.eachLine('savedMessages/forumMessages.txt', function(line, last) {
+		lineCount++;
+		console.log(lineCount);
+		if (last) {return false;}
+	});
+	var counter = 0;
+	//Check if at max messages
+	if (lineCount < 500) {
+		fs.appendFile('savedMessages/forumMessages.txt', req.body.post + '\n', function(err) {
+			if (err) throw err;
+			console.log('Saved!');
+		});	
+	}else { //Too Many let's clean up
+		//Copy File
+		fs.copyFile('savedMessage/forumMessages.txt', 'savedMessage/temp.txt', (err) => {
+			if (err) throw err;
+			console.log('source.txt was copied to destination.txt');
+		});
+		
+		//Remove Old File
+		fs.unlink('savedMessage/forumMessages.txt', (err) => {
+			if (err) {
+			  console.error(err)
+			  return
+			}
+		});
+
+		//Add
+		lineReader.eachLine('savedMessage/temp.txt', function(line, last) {
+			counter++;
+			if (counter >=lineCount - 49) {
+				fs.appendFile('savedMessages/forumMessages.txt', line, function(err) {
+					if (err) throw err;
+					console.log('Saved!');
+				});	
+
+				if (last) {
+					fs.appendFile('savedMessages/forumMessages.txt', req.body.post + '\n', function(err) {
+						if (err) throw err;
+						console.log('Saved!');
+					});	
+
+					lineCount = 50;
+					return false;
+				}
+			}
+		});
+	}
+
+	console.log("After" + lineCount);
+
+	counter = 0;
+	lineReader.eachLine('savedMessages/forumMessages.txt', function(line, last) {
+		counter++;
+		//Skip everything until last 50
+		if (counter >= lineCount - 50) {
+			//console.log(line);
+			res.write(line);
+
+			if (last) {
+				res.end();
+			  return false; // stop reading
+			}
+		}
+	  });
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
