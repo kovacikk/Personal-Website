@@ -272,8 +272,17 @@ app.post('/server/chat3/', async function test (req, res) {
 			var remove = await query("DELETE FROM messages WHERE message_id IN (SELECT message_id FROM messages LIMIT 451)");
 		}
 
+		//Get Last Message_Id
+		var idNumber;
+		var id = await query("SELECT message_id FROM messages ORDER BY message_id DESC LIMIT 1");
+		if (id.rows.length > 0) {
+			idNumber = id.rows[0].message_id;
+		}
+		else {
+			idNumber = 0;
+		}
 		//Insert New Message
-		var waitTime = await query("INSERT INTO messages(message) VALUES ('" + req.body.post + "');");
+		var waitTime = await query("INSERT INTO messages(message) VALUES ('" + idNumber + ": " + req.body.post + "');");
 
 		//Get Last 50 messages
 		var qResult = await query('SELECT message FROM (SELECT message_id, message FROM messages ORDER BY message_id DESC LIMIT 50) SQ ORDER BY message_id ASC');
