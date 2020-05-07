@@ -117,8 +117,149 @@ app.post('/server/message/', function(req, res) {
 	);
 })
 
-//Send Chat Messages to Server
-app.post('/server/chat/', async function test (req, res) {
+class LinkedListNode {
+	constructor(message) {
+		this.message = message;
+		this.next = null;
+		this.prev = null;
+	}
+}
+
+var chatHead = null;
+var chatLength = 0;
+var counter = 0;
+
+function addChat(message) {
+	if (chatLength != 50) {
+		if (chatHead == null) {
+			const head = new LinkedListNode(counter + ": " + message + "\n");
+			head.next = head;
+			head.prev = head;
+
+			chatHead = head;
+		}
+		else {
+			const newNode = new LinkedListNode(counter + ": " + message + "\n");
+			newNode.prev = chatHead.prev;
+			newNode.next = chatHead;
+			chatHead.prev.next = newNode;
+			chatHead.prev = newNode;			
+		}
+		counter++;
+		chatLength++;
+	}else {
+		const newNode = new LinkedListNode(counter + ": " + message + "\n");
+		newNode.prev = chatHead.prev;
+		chatHead.prev.next = newNode;
+		newNode.next = chatHead.next;
+		chatHead.next.prev = newNode;
+
+		counter++;
+	}
+}
+
+function readChat() {
+	var result = "";
+
+	var next = chatHead;
+	if (next != null) {
+		while (next.next != chatHead) {
+			result = result + next.message;
+			next = next.next;
+		}
+		result = result + next.message
+	}
+	return result;
+}
+
+app.post('/server/chat/', function(req, res) {
+	console.log(req.body);
+
+	addChat(req.body.post);
+
+	var test = readChat();
+	res.set('Content-Type', 'text/html');
+	res.send( new Buffer('<h2>' + test + "</h2>"));
+})
+
+app.post('/server/chat2/', function(req,res) {
+
+	fs.mkdir('./savedMessages/', { recursive: true }, (err) => {
+		if (err) throw err;
+	});
+
+	var test = ""
+
+	var lineCount = 0;
+
+	lineReader.eachLine('savedMessages/forumMessages.txt', function(line, last) {
+		lineCount++;
+		console.log(lineCount);
+		if (last) {return false;}
+	});
+	var counter = 0;
+	//Check if at max messages
+	if (lineCount < 500) {
+		fs.appendFile('savedMessages/forumMessages.txt', req.body.post + '\n', function(err) {
+			if (err) throw err;
+			console.log('Saved!');
+		});	
+	}else { //Too Many let's clean up
+		//Copy File
+		fs.copyFile('savedMessage/forumMessages.txt', 'savedMessage/temp.txt', (err) => {
+			if (err) throw err;
+			console.log('source.txt was copied to destination.txt');
+		});
+		
+		//Remove Old File
+		fs.unlink('savedMessage/forumMessages.txt', (err) => {
+			if (err) {
+			  console.error(err)
+			  return
+			}
+		});
+
+		//Add
+		lineReader.eachLine('savedMessage/temp.txt', function(line, last) {
+			counter++;
+			if (counter >=lineCount - 49) {
+				fs.appendFile('savedMessages/forumMessages.txt', line, function(err) {
+					if (err) throw err;
+					console.log('Saved!');
+				});	
+
+				if (last) {
+					fs.appendFile('savedMessages/forumMessages.txt', req.body.post + '\n', function(err) {
+						if (err) throw err;
+						console.log('Saved!');
+					});	
+
+					lineCount = 50;
+					return false;
+				}
+			}
+		});
+	}
+
+	console.log("After" + lineCount);
+
+	counter = 0;
+	lineReader.eachLine('savedMessages/forumMessages.txt', function(line, last) {
+		counter++;
+		//Skip everything until last 50
+		if (counter >= lineCount - 50) {
+			//console.log(line);
+			res.write(line);
+
+			if (last) {
+				res.end();
+			  return false; // stop reading
+			}
+		}
+	  });
+})
+
+app.post('/server/chat3/', async function test (req, res) {
 	try {
 		query = promisify(pool.query).bind(pool);
 

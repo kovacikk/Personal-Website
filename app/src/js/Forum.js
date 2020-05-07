@@ -12,7 +12,7 @@ class Forum extends Component {
     
     handleSubmit = async e => {
         e.preventDefault();
-        const response = await fetch('/server/chat/', {
+        const response = await fetch('/server/chat3/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
