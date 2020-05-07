@@ -9,31 +9,33 @@
 }
 
 #header {
-	padding-bottom: 10px;
-	padding-top: 10px;
+	padding-bottom: 1.6vh;
+	padding-top: 1.6vh;
 }
 
 #header p {
 	margin: 0;
 
 	color: black;
-	font-size: 40px;
+	font-size: 6.4vh;
 	font-family: "serif";
 	font-weight: bold;
-	margin-bottom: 4px;
+	margin-bottom: .64vh;
 	
-	border: 1px solid white;
+	height: 8vh;
+
+	border: .16vh solid white;
 }
 
 #notFooter {
 	min-height: 100%;
-	margin-bottom: -60px;
+	margin-bottom: -9.6vh;
 	position: relative;
 }
 
 #bar {
 	background: linear-gradient(#777777, #444444);
-	height: 25px;
+	height: 4vh;
 }
 
 #midSection {
@@ -78,7 +80,7 @@ li {
 #sidebar button {
 	padding: 6px 8px 6px 16px;
 	text-decoration: none;
-	font-size: 20px;
+	font-size: 3.2vh;
 	font-family: "serif";
 	color: grey;
 	display: block;
@@ -94,27 +96,27 @@ li {
 }
 
 #main {
-	font-size: 18px;
+	font-size: 2.88vh;
 	width: 80%;
 	margin: 0 auto;
 	font-family: 'Spectral', serif;
 }
 
 #footer {
-	height: 50px;
+	height: 5vh;
 	position: relative;
 	font-size: 14px;
 	font-style: italic;
-	padding-top: 10px;
+	padding-top: 1.6vh;
 	margin-bottom: 3.25vh;
 }
 
 body {
-	height:100%;
+	height:100vh;
 }
 
 #clearFooter {
-	height: 50px;
+	height: 10vh;
 	clear: both;
 }
 

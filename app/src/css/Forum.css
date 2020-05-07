@@ -1,0 +1,21 @@
+
+#invisibleBox {
+    
+}
+
+#chatBox {
+    overflow-y:auto;
+    height: 50vh;
+    background-color: white;
+}
+
+#chatBody {
+   height:65vh;
+    
+    
+}
+
+#form {
+    padding-top: 2vh;
+}
+

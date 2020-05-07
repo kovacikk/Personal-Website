@@ -66,9 +66,9 @@ class App extends Component {
                     <div id="header">
                         <p>Kyle Website</p>
                     </div>
-
                     <div id="bar"></div>
                         <div id="midSection">
+                            
                         <ul id="sidebar">
                             <li>
                                 <Link to="/"><button>Home</button></Link>

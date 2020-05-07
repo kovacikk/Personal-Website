@@ -119,6 +119,9 @@ app.post('/server/message/', function(req, res) {
 
 //Chat
 app.post('/server/chat/', async function test (req, res) {
+
+	var messageArray = [];
+
 	try {
 		query = promisify(pool.query).bind(pool);
 
@@ -150,25 +153,15 @@ app.post('/server/chat/', async function test (req, res) {
 
 		//Print Last 50 messages
 		for (var i = 0; i < qResult.rows.length; i++) {
-			html = html + "<p>" + qResult.rows[i].message + "</p>";
+			messageArray.push(qResult.rows[i].message);
 		}
-		
-		html = html + "</body></html>";
-
-		res.writeHead(200, {
-			'Content-Type': 'text/html',
-			'Content-Length': html.length,
-			'Expires': new Date().toUTCString()
-		});
-
-		
 
 	} catch (e) {
 		console.log(e);
 	}
 
+	res.send(messageArray);
 
-	res.end(html);
 })
 
 
