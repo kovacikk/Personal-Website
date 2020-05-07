@@ -160,8 +160,15 @@ app.post('/server/chat/', async function test (req, res) {
 		else {
 			idNumber = 0;
 		}
+
+		var message = req.body.post;
+
+		if (message.length > 256) {
+			message = message.substring(0,255);
+		}
+
 		//Insert New Message
-		var waitTime = await query("INSERT INTO messages(message) VALUES ('" + idNumber + ": " + req.body.post + "');");
+		var waitTime = await query("INSERT INTO messages(message) VALUES ('" + idNumber + ": " + message + "');");
 
 		//Get Last 50 messages
 		var qResult = await query('SELECT message FROM (SELECT message_id, message FROM messages ORDER BY message_id DESC LIMIT 50) SQ ORDER BY message_id ASC');

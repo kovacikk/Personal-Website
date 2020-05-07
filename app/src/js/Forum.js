@@ -33,6 +33,9 @@ class Forum extends Component {
       };
 
     updateChat = async e => {
+       
+        try { 
+            
         const response = await fetch('/server/chatUpdate');
         const body = await response.json();
 
@@ -46,7 +49,9 @@ class Forum extends Component {
         }
 
         this.setState({bool: 0});
-
+        }catch (e) {
+            console.log(e);
+        }
     }
 
     componentDidMount() {
