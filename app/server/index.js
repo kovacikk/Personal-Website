@@ -117,6 +117,23 @@ app.post('/server/message/', function(req, res) {
 	);
 })
 
+//Update Chat
+app.get('/server/chatUpdate/', async function(req, res) {
+	var messageArray = [];
+	
+	query = promisify(pool.query).bind(pool);
+
+	//Get Last 50 messages
+	var qResult = await query('SELECT message FROM (SELECT message_id, message FROM messages ORDER BY message_id DESC LIMIT 50) SQ ORDER BY message_id ASC');
+
+	//Store Last 50 messages into Array
+	for (var i = 0; i < qResult.rows.length; i++) {
+		messageArray.push(qResult.rows[i].message);
+	}
+	
+	res.send(messageArray);
+})
+
 //Chat
 app.post('/server/chat/', async function test (req, res) {
 
@@ -149,9 +166,7 @@ app.post('/server/chat/', async function test (req, res) {
 		//Get Last 50 messages
 		var qResult = await query('SELECT message FROM (SELECT message_id, message FROM messages ORDER BY message_id DESC LIMIT 50) SQ ORDER BY message_id ASC');
 
-		var html = "<!DOCTYPE html>" + "<html><head>" + "</head><body>";
-
-		//Print Last 50 messages
+		//Store Last 50 messages into Array
 		for (var i = 0; i < qResult.rows.length; i++) {
 			messageArray.push(qResult.rows[i].message);
 		}
