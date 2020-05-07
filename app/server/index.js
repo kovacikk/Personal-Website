@@ -146,14 +146,29 @@ app.post('/server/chat/', async function test (req, res) {
 		//Get Last 50 messages
 		var qResult = await query('SELECT message FROM (SELECT message_id, message FROM messages ORDER BY message_id DESC LIMIT 50) SQ ORDER BY message_id ASC');
 
+		var html = "<!DOCTYPE html>" + "<html><head>" + "</head><body>";
+
 		//Print Last 50 messages
 		for (var i = 0; i < qResult.rows.length; i++) {
-			res.write(qResult.rows[i].message);
+			html = html + "<p>" + qResult.rows[i].message + "</p>";
 		}
+		
+		html = html + "</body></html>";
+
+		res.writeHead(200, {
+			'Content-Type': 'text/html',
+			'Content-Length': html.length,
+			'Expires': new Date().toUTCString()
+		});
+
+		
+
 	} catch (e) {
 		console.log(e);
 	}
-	res.end();
+
+
+	res.end(html);
 })
 
 
