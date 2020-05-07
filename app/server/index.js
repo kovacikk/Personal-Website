@@ -5,6 +5,12 @@ const https = require('https')
 var formidable = require('formidable')
 var fs = require('fs')
 var lineReader = require('line-reader')
+const { Pool, Client } = require('pg')
+const connectionString = 'postgres://qngehzjp:X_X_jnJh8EZ0UylesESWRV0Dq7fkqCrd@drona.db.elephantsql.com:5432/qngehzjp'
+const pool = new Pool({
+  connectionString: connectionString,
+})
+const {promisify} = require('util');
 
 var ReactDOMServer = require('react-dom/server');
 
@@ -252,5 +258,36 @@ app.post('/server/chat2/', function(req,res) {
 		}
 	  });
 })
+
+app.post('/server/chat3/', async function test (req, res) {
+	try {
+		query = promisify(pool.query).bind(pool);
+
+		//Check Number of Messages
+		var messageNumber = await query("SELECT COUNT(*) AS count FROM messages;");
+		var count = messageNumber.rows[0].count;
+
+		//If greater than equal to 500 trim to 49
+		if (count >= 500) {
+			var remove = await query("DELETE FROM messages WHERE message_id IN (SELECT message_id FROM messages LIMIT 451)");
+		}
+
+		//Insert New Message
+		var waitTime = await query("INSERT INTO messages(message) VALUES ('" + req.body.post + "');");
+
+		//Get Last 50 messages
+		var qResult = await query('SELECT message FROM (SELECT message_id, message FROM messages ORDER BY message_id DESC LIMIT 50) SQ ORDER BY message_id ASC');
+
+		//Print Last 50 messages
+		for (var i = 0; i < qResult.rows.length; i++) {
+			res.write(qResult.rows[i].message);
+		}
+	} catch (e) {
+		console.log(e);
+	}
+	res.end();
+})
+
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
