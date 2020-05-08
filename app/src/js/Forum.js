@@ -33,7 +33,7 @@ class Forum extends Component {
       };
 
     updateChat = async e => {
-       
+        
         try { 
             
         const response = await fetch('/server/chatUpdate');

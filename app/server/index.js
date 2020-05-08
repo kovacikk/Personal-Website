@@ -162,6 +162,9 @@ app.post('/server/chat/', async function test (req, res) {
 		}
 
 		var message = req.body.post;
+		
+		//Replace all Apostrophe's with two because of SQL syntax
+		message = message.replace(/'/g, "\'\'");
 
 		if (message.length > 256) {
 			message = message.substring(0,255);
