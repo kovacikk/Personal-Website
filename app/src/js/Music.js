@@ -9,27 +9,18 @@ class Music extends Component {
         }
     };
 
-    componentDidMount() {
-        this.callServer().then(res => {
-            this.setState({response: res.express});
-        }).catch(err => console.log(err));
-    }
-
-    callServer = async () => {
-        const response = await fetch('/music');
-        const body = await response.json();
-
-        if (response.status !== 200) throw Error(body.message);
-        return body;
-    };
-
     render() {
 
         return (
             <div>
                 <h3>Music Time!</h3>
-                <p>{this.state.response}</p>
-                <img src={this.state.response}></img>
+                <div id="contents">
+                    <h4>Famous sniff album by 7/11 Scurvy Execution:</h4>
+                    <a class="musicLink" href="https://711scurvyexecution.bandcamp.com/">https://711scurvyexecution.bandcamp.com/</a>
+                    <div id="iframe">
+                        <iframe src="https://711scurvyexecution.bandcamp.com/"></iframe>
+                    </div>
+                </div>
             </div>
         );
     }

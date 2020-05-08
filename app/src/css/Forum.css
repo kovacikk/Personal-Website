@@ -6,6 +6,7 @@
 #chatBox {
     overflow-y:auto;
     height: 50vh;
+    
     background-color: white;
     word-wrap: break-word;
 }
@@ -13,7 +14,9 @@
 #chatBody {
    height:65vh;
     
-    
+   width: 60vw;
+   padding-left: 10vw;
+   padding-right: 10vw;
 }
 
 #form {

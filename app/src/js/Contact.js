@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import '../css/Contact.css';
+import '../css/Contact.css';
 
 class Contact extends Component {
     constructor(props) {
@@ -13,6 +13,8 @@ class Contact extends Component {
         return (
             <div>
                 <h3>Contact</h3>
+                <p>Github:</p>
+                
             </div>
         );
     }
