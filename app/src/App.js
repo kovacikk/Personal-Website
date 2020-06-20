@@ -14,6 +14,7 @@ import Contact from './js/Contact.js';
 import Serve from './js/Serve.js';
 import Music from './js/Music.js';
 import Mom from './js/Mom.js';
+import Dad from './js/Dad.js';
 
 class Paragraph extends Component {
     constructor(props) {
@@ -109,6 +110,9 @@ class App extends Component {
                                 </Route>
                                 <Route path="/momDay">
                                     <Mom/>
+                                </Route>
+                                <Route path="/dadDay">
+                                    <Dad/>
                                 </Route>
                                 <Route path="/">
                                     <Home />
