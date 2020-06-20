@@ -3,7 +3,7 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    Link,
   } from "react-router-dom";
 
 import './css/App.css';
@@ -15,6 +15,7 @@ import Serve from './js/Serve.js';
 import Music from './js/Music.js';
 import Mom from './js/Mom.js';
 import Dad from './js/Dad.js';
+import DadWin from './js/DadWin.js';
 
 class Paragraph extends Component {
     constructor(props) {
@@ -113,6 +114,9 @@ class App extends Component {
                                 </Route>
                                 <Route path="/dadDay">
                                     <Dad/>
+                                </Route>
+                                <Route path="/dadWin">
+                                    <DadWin/>
                                 </Route>
                                 <Route path="/">
                                     <Home />
