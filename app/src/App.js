@@ -16,6 +16,7 @@ import Music from './js/Music.js';
 import Mom from './js/Mom.js';
 import Dad from './js/Dad.js';
 import DadWin from './js/DadWin.js';
+import MomBD from './js/MomBD.js';
 
 class Paragraph extends Component {
     constructor(props) {
@@ -117,6 +118,9 @@ class App extends Component {
                                 </Route>
                                 <Route path="/dadWin">
                                     <DadWin/>
+                                </Route>
+                                <Route path="/momBD">
+                                    <MomBD/>
                                 </Route>
                                 <Route path="/">
                                     <Home />
