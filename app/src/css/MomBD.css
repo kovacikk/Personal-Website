@@ -1,0 +1,197 @@
+br {
+    line-height: 70%;
+}
+
+#poem {
+    font-family: Garamond;
+    line-height: 150%;
+    font-weight: bold;
+    font-size: 50w;
+    
+    background: linear-gradient(hsl(263, 39%, 76%), hsl(0, 25%, 63%));
+    width: 32%;
+    margin-left: 34%;
+    margin-right: 34%;
+
+    border-radius: 3vh;
+    border-style: solid;
+    border-color: black;
+ 
+    height: 30%;
+    padding-top: 1%;
+
+}
+
+#mainBd {
+    justify-content: center;
+}
+
+#slots {
+    
+    width: 40vw;
+    margin-left: 20vw;
+    margin-right: 40vw;
+
+    text-align: center;
+}
+
+* { box-sizing: border-box; }
+
+body { font-family: sans-serif; }
+
+.scene {
+
+    
+    
+    position: relative;
+    width: 180px;
+    height: 140px;
+    
+    perspective: 1000px;
+
+}
+
+#carousel1 {
+  width: 8vw;
+  height: 10vh;
+  
+  transform-style: preserve-3d;
+  
+  transition: transform 1s;
+  margin-left: 2vw;
+  margin-right: 0vw;
+
+  margin-top: 2vh;
+}
+
+#carousel2 {
+    width: 8vw;
+    height: 10vh;
+    
+    transform-style: preserve-3d;
+    
+    transition: transform 2s;
+    margin-left: 2vw;
+    margin-right: 0vw;
+  
+    margin-top: 2vh;
+  }
+
+  #carousel3 {
+    width: 8vw;
+    height: 10vh;
+    
+    transform-style: preserve-3d;
+    
+    transition: transform 5s;
+    margin-left: 2vw;
+    margin-right: 0vw;
+  
+    margin-top: 2vh;
+  }
+
+.carousel__cell {
+  position: absolute;
+  width: 8vw;
+  height: 100px;
+  left: 10px;
+  top: 10px;
+  border: 2px solid black;
+  line-height: 116px;
+  font-size: 70px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+
+
+.carousel__cell__win {
+    position: absolute;
+    width: 8vw;
+    height: 100px;
+    left: 10px;
+    top: 10px;
+    border: 2px solid black;
+    line-height: 116px;
+    font-size: 70px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+  }
+
+.carousel__cell:nth-child(9n+1) { background: rgb(255, 0, 0); }
+.carousel__cell:nth-child(9n+2) { background: rgb(255, 170, 0); }
+.carousel__cell:nth-child(9n+3) { background: rgb(170, 255, 0); }
+.carousel__cell:nth-child(9n+4) { background: hsl(120, 100%, 50%); }
+.carousel__cell:nth-child(9n+5) { background: hsl(160, 100%, 50%); }
+.carousel__cell:nth-child(9n+6) { background: hsl(200, 100%, 50%); }
+.carousel__cell:nth-child(9n+7) { background: hsl(240, 100%, 50%); }
+.carousel__cell:nth-child(9n+8) { background: hsl(280, 100%, 50%); }
+.carousel__cell:nth-child(9n+0) { background: hsl(320, 100%, 50%); }
+
+.carousel__cell:nth-child(1) { transform: rotateX(  0deg) translateZ(150px); }
+.carousel__cell:nth-child(2) { transform: rotateX( 40deg) translateZ(150px); }
+.carousel__cell:nth-child(3) { transform: rotateX( 80deg) translateZ(150px); }
+.carousel__cell:nth-child(4) { transform: rotateX(120deg) translateZ(150px); }
+.carousel__cell:nth-child(5) { transform: rotateX(160deg) translateZ(150px); }
+.carousel__cell:nth-child(6) { transform: rotateX(200deg) translateZ(150px); }
+.carousel__cell:nth-child(7) { transform: rotateX(240deg) translateZ(150px); }
+.carousel__cell:nth-child(8) { transform: rotateX(280deg) translateZ(150px); }
+.carousel__cell:nth-child(9) { transform: rotateX(320deg) translateZ(150px); }
+
+.carousel__cell__win:nth-child(9n+1) { background: rgb(255, 0, 0); }
+.carousel__cell__win:nth-child(9n+2) { background:  rgb(255, 0, 0); }
+.carousel__cell__win:nth-child(9n+3) { background:  rgb(255, 0, 0); }
+.carousel__cell__win:nth-child(9n+4) { background:  rgb(255, 0, 0); }
+.carousel__cell__win:nth-child(9n+5) { background:  rgb(255, 0, 0); }
+.carousel__cell__win:nth-child(9n+6) { background:  rgb(255, 0, 0); }
+.carousel__cell__win:nth-child(9n+7) { background:  rgb(255, 0, 0); }
+.carousel__cell__win:nth-child(9n+8) { background:  rgb(255, 0, 0); }
+.carousel__cell__win:nth-child(9n+0) { background:  rgb(255, 0, 0); }
+
+.carousel__cell__win:nth-child(1) { transform: rotateX(  0deg) translateZ(150px); }
+.carousel__cell__win:nth-child(2) { transform: rotateX( 40deg) translateZ(150px); }
+.carousel__cell__win:nth-child(3) { transform: rotateX( 80deg) translateZ(150px); }
+.carousel__cell__win:nth-child(4) { transform: rotateX(120deg) translateZ(150px); }
+.carousel__cell__win:nth-child(5) { transform: rotateX(160deg) translateZ(150px); }
+.carousel__cell__win:nth-child(6) { transform: rotateX(200deg) translateZ(150px); }
+.carousel__cell__win:nth-child(7) { transform: rotateX(240deg) translateZ(150px); }
+.carousel__cell__win:nth-child(8) { transform: rotateX(280deg) translateZ(150px); }
+.carousel__cell__win:nth-child(9) { transform: rotateX(320deg) translateZ(150px); }
+
+table {
+    margin-top: 10vh;
+    margin-bottom: 22vh;
+    width: 100%;
+}
+
+td {
+    padding: 0px;
+}
+
+#spin {
+    background-color: red;
+    color: white;
+    padding: 1em 5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 2vh;
+  }
+  
+#spin:hover {
+    background-color: rgb(88, 22, 22);
+  }
+
+#spin:hover {
+    cursor: pointer;
+  }
+
+#cheese {
+    height: 20vh;
+    width: auto;
+}
+
+#hidden {
+    display: none;
+}
