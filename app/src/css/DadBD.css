@@ -1,0 +1,8 @@
+video {
+    height: 256;
+    width: 256;
+}
+
+.link {
+    cursor: pointer;
+}
