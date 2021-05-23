@@ -3,21 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@popperjs/core": "^2.9.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "bootstrap": "^5.0.1",
     "line-reader": "^0.4.0",
     "line-reader-sync": "^0.1.0",
     "mysql": "^2.18.1",
     "pg": "^8.0.3",
     "postgres": "^1.0.2",
     "react": "^16.13.1",
+    "react-bootstrap": "^1.6.0",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.4.1"
+    "react-scripts": "^4.0.3"
   },
   "devDependencies": {
-    "concurrently": "^4.1.2"
+    "concurrently": "^6.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
