@@ -12,7 +12,9 @@ require('bootstrap');
 ReactDOM.render(
   <React.StrictMode>
     {/*<App />*/}
-    <Boot/>
+    <div id="all">
+      <Boot/>
+    </div>
     {/*<Boot/>*/}
     
   </React.StrictMode>,

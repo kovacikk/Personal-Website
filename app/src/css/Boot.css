@@ -4,15 +4,38 @@
 }
 
 #header {
-    height: 15vh;
+    
 }
 
-#content {
-    min-height: 70vh;
+#spacer {
+    
 }
 
 #footer {
-    height: 15vh;
+    
+}
+
+#center {
+    min-height: 100vh;
+}
+
+#headerText {
+    font-size: 2.5rem;
+}
+
+@media (min-width: 544px) {
+
+}
+
+@media(min-width: 768px) {
+
+}
+
+.side-text {
+    color:rgb(235, 235, 235);
 }
 
 
+.nav-pills .nav-link.active {
+    background-color: #727070 !important;
+}
