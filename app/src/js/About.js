@@ -11,8 +11,10 @@ class About extends Component {
 
     render() {
         return (
-            <div>
-                <h3>About</h3>
+            <div class="container text-dark">
+                <div class="row mt-4">
+                    
+                </div>
             </div>
         );
     }

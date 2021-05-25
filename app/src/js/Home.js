@@ -11,12 +11,32 @@ class Home extends Component {
 
     render() {
         return (
-            <div>
-                <h3>Kyle Website</h3>
-			    <p>Here at Kyle Website, you can learn all about Kyle. You can learn about all of his exploits and how to contact him. There will even be a message board coming soon!!!</p>
-                <br></br>
-                <h3>Status on Kyle</h3>
-				<p>Kyle is currently a Computer Science major studying for his bachelor's at Purdue University. He plans to develop software and work with machine learning</p>
+            <div class="container text-dark">
+                <div class="row mt-4 pb-2">
+                    <div class="col-sm-7 col-md-5 col-lg-3">
+                        <div class="card text-white bg-secondary">
+                            <div class="card-body align-items-center d-flex justify-content-center">
+                                <h3>Welcome</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2 m-2">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            &emsp; Hello, welcome to my website. This website is dedicated to me, Kyle Kovacik, as a way to showcase different projects, music, and ways to contact me.
+                            Also, it serves as a good vehicle to test out different web technologies in a practical way. 
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4 m-2 pt-2">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            &emsp; Feel free to look around and enjoy your stay.
+                        </div>
+                    </div>
+                        
+                </div>
             </div>
         );
     }
