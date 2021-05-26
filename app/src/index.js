@@ -5,12 +5,12 @@ import App from './App.js';
 import Boot from './Boot.js';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
+import "bootstrap/dist/js/bootstrap.min.js";
 
 ReactDOM.render(
 
   <React.StrictMode>
+
     {/*<App />*/}
     <div id="all">
       <Boot/>

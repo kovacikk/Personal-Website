@@ -15,12 +15,22 @@ import Music from './js/Music.js';
 import Projects from './js/Projects.js'
 
 class Boot extends Component {
+    
+    collapsed = true;
+    
     constructor(props) {
         super(props);
-        this.state = {
-            
-        }
+        
+        this.state = {collapsed: true};
+        this.updateArrow = this.updateArrow.bind(this);
     };
+
+    
+    updateArrow() {
+        this.setState(prevState => ({
+            collapsed: !prevState.collapsed
+        }));
+    }
 
     render() {
         return (
@@ -31,9 +41,15 @@ class Boot extends Component {
                     <div class="col-sm-4 col-md-3 col-lg-2 gy-5 gx-5" id="sidebar">
                         
                         <div class="row gx-1 p-3 text-light bg-dark sidebar">  
-                            <a class="align-items-center text-light text-decoration-none" data-bs-toggle="collapse" href="#collapseSidebar" aria-expanded="true">
-                                <span class="fs-4">Links</span>
-                            </a>
+                            <div class="col-11 col-sm-10 col-md-10 col-lg-9"  data-bs-toggle="collapse" onClick={this.updateArrow} href="#collapseSidebar" aria-expanded="true">
+                                <a class="align-items-center text-light text-decoration-none">
+                                    <span class="fs-4">Links</span>
+                                </a>
+                            </div>
+                            <div class="col-1 align-self-center"  data-bs-toggle="collapse" onClick={this.updateArrow} href="#collapseSidebar" aria-expanded="true">
+                                {this.state.collapsed && (<i class="bi bi-caret-down fs-3"></i>)}
+                                {!this.state.collapsed && (<i class="bi bi-caret-up fs-3"></i>)}
+                            </div>
                             <hr/>
                             <div class="collapse show" id="collapseSidebar" aria-expanded="true">
                             <ul class="nav nav-pills flex-column">

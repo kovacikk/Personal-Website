@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import '../css/Projects.css';
+import Project from './Project.js'
 
+
+// Main Project Body Class
 class Projects extends Component {
     constructor(props) {
         super(props);
@@ -13,7 +16,7 @@ class Projects extends Component {
         return (
             <div class="container text-dark">
 
-                <div class="row mt-4">
+                <div class="row mt-4 mb-4">
                     <div class="col-sm-7 col-md-5 col-lg-3">
                         <div class="card text-white bg-secondary">
                             <div class="card-body align-items-center d-flex justify-content-center p-1">
@@ -22,103 +25,70 @@ class Projects extends Component {
                         </div>
                     </div>
                 </div>
-                <div class="row mt-4 m-2">
-                    <div class="card bg-light">
-                        <div class="card-body">
-                            <p>
-                                <a class="align-items-center text-dark text-decoration-none" data-bs-toggle="collapse" href="#personal-website-collapse" aria-expanded="true">
-                                    <span class="fs-4">Personal Website</span><p>- Node.js, React.js, HTML, CSS, MySQL, BootStrap</p>
-                                </a>
-                            </p>
-                            <div class="collapse show" id="personal-website-collapse">
-                                <div class="card card-body">
-                                    <p>
-                                        This website you are on right now. This website is built to host information about myself while testing various web technologies.
-                                        Tests using node, react, and querying to a database as well as BootStrap to make everything look nice.
-                                    </p>
-                                    <a href="https://github.com/kovacikk/Node-React-Test" target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-outline-dark">https://github.com/kovacikk/Node-React-Test</button></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-2 m-2">
-                    <div class="card bg-light">
-                        <div class="card-body">
-                            <p>
-                                <a class="align-items-center text-dark text-decoration-none" data-bs-toggle="collapse" href="#collapseSidebar" aria-expanded="true">
-                                    <span class="fs-4">Mini Java Compiler</span><p>- C, ARM Assembly, Lex, Yacc</p>
-                                </a>
-                            </p>
-                            <div class="collapse show" id="collapseExample">
-                                <div class="card card-body pb-0">
-                                    <p>
-                                        A compiler written for a simpler specification of Java. It is written in C with lex and yacc and generates ARM assembly code
-                                        from Java code.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-2 m-2">
-                    <div class="card bg-light">
-                        <div class="card-body">
-                            <p>
-                                <a class="align-items-center text-dark text-decoration-none" data-bs-toggle="collapse" href="#collapseSidebar" aria-expanded="true">
-                                    <span class="fs-4">Xinu Project</span><p>- C, AT&T Assembly</p>
-                                </a>
-                            </p>
-                            <div class="collapse show" id="collapseExample">
-                                <div class="card card-body pb-0">
-                                    <p>
-                                        A project where I implemented core functions for the Xinu operating systems such as interrupt handling and context switching.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-2 m-2">
-                    <div class="card bg-light">
-                        <div class="card-body">
-                            <p>
-                                <a class="align-items-center text-dark text-decoration-none" data-bs-toggle="collapse" href="#collapseSidebar" aria-expanded="true">
-                                    <span class="fs-4">Shell Project</span><p>- C, C++, Lex, Yacc</p>
-                                </a>
-                            </p>
-                            <div class="collapse show" id="collapseExample">
-                                <div class="card card-body pb-0">
-                                    <p>
-                                        The Shell Project was a project where I created a complete shell using C, C++ and Lex and Yacc tools. The shell also has subshell, 
-                                        cursor movement, and other common features.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-2 m-2">
-                    <div class="card bg-light">
-                        <div class="card-body">
-                            <p>
-                                <a class="align-items-center text-dark text-decoration-none" data-bs-toggle="collapse" href="#collapseSidebar" aria-expanded="true">
-                                    <span class="fs-4">Model Filtering Project</span><p>- Python</p>
-                                </a>
-                            </p>
-                            <div class="collapse show" id="collapseExample">
-                                <div class="card card-body">
-                                    <p>
-                                        In this project, I created two different models for filtering and predicting food ratings. Built off a food dish rating dataset, 
-                                        one model used a memory-based collaborative filtering approach. Another model used a model-based filtering approach.
-                                    </p>
-                                    <a href="https://github.com/kovacikk/CS473-Project-2" target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-outline-dark">https://github.com/kovacikk/CS473-Project-2</button></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-4 mb-2">
+                <Project 
+                    name={"Personal Website"} 
+                    languages={"Node.js, React.js, HTML, CSS, MySQL, BootStrap"} 
+                    description="This website you are on right now. This website is built to host information about myself while testing various web technologies.
+                        Tests using node, react, and querying to a database as well as BootStrap to make everything look nice.t" 
+                    link="https://github.com/kovacikk/Node-React-Test"
+                />
+                <Project 
+                    name={"Mini Java Compiler"}
+                    languages={"C, ARM Assembly, Lex, Yacc"}
+                    description="A compiler written for a simpler specification of Java. It is written in C with lex and yacc and generates ARM assembly code
+                        from Java code."
+                    link="-1"
+                />
+                <Project 
+                    name={"Xinu Project"}
+                    languages={"C, AT&T Assembly"}
+                    description="A project where I implemented core functions for the Xinu operating systems such as interrupt handling and context switching."
+                    link="-1"
+                />
+                <Project 
+                    name={"Shell Project"}
+                    languages={"C, C++, Lex, Yacc"}
+                    description="The Shell Project was a project where I created a complete shell using C, C++ and Lex and Yacc tools. The shell also has subshell, 
+                        cursor movement, and other common features."
+                    link="-1"
+                />
+                <Project 
+                    name={"Model Filtering Project"}
+                    languages={"Python"}
+                    description="In this project, I created two different models for filtering and predicting food ratings. Built off a food dish rating dataset, 
+                        one model used a memory-based collaborative filtering approach. Another model used a model-based filtering approach."
+                    link="-1"
+                />
+                <Project 
+                    name={"Malloc Project"}
+                    languages={"C"}
+                    description="A project where the malloc memory allocation program was implemented in C. Also, included memory error management."
+                    link="-1"
+                />
+                <Project 
+                    name={"BigBox"}
+                    languages={"HTML, CSS BootStrap, Django, MySQL"}
+                    description="BigBox was a group project of five where we created an odd job posting website targeted towards younger ages.
+                        Users could create accounts and post job offers as well as accept other's offers. I primarily focused on the HTML, CSS, and Bootstrap 
+                        elements of the site with some database querying."
+                    link="https://github.com/kovacikk/BigBox"
+                />
+                <Project 
+                    name={"Temp Project"}
+                    languages={"c"}
+                    description="very funny temp project"
+                    link="-1"
+                />
+                <Project 
+                    name={"Temp Project"}
+                    languages={"c"}
+                    description="very funny temp project"
+                    link="-1"
+                />
+
+                
+                
+                <div class="row mt-2 mb-2">
                     <div class="col-sm-7 col-md-5 col-lg-3">
                         <div class="card text-white bg-secondary">
                             <div class="card-body align-items-center d-flex justify-content-center p-1">
