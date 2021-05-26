@@ -24,18 +24,15 @@ class Home extends Component {
                 <div class="row mt-4 m-2">
                     <div class="card bg-light">
                         <div class="card-body">
-                            &emsp; Hello, welcome to my website. This website is dedicated to me, Kyle Kovacik, as a way to showcase different projects, music, and ways to contact me.
-                            Also, it serves as a good vehicle to test out different web technologies in a practical way. 
+                            <p>
+                                &emsp; Hello, welcome to my website. This website is dedicated to me, Kyle Kovacik, as a way to showcase different projects, music, and ways to contact me.
+                                Also, it serves as a good vehicle to test out different web technologies in a practical way. 
+                            </p>
+                            <p class="mt-5">
+                                &emsp; Feel free to look around and enjoy your stay.
+                            </p>
                         </div>
                     </div>
-                </div>
-                <div class="row mt-4 m-2 pt-2">
-                    <div class="card bg-light">
-                        <div class="card-body">
-                            &emsp; Feel free to look around and enjoy your stay.
-                        </div>
-                    </div>
-                        
                 </div>
             </div>
         );

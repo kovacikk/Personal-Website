@@ -26,8 +26,10 @@ class About extends Component {
                     <div class="col">
                         <div class="card bg-light">
                         <div class="card-body">
-                                <div class="col-3 float-end mt-0 me-0 ms-3 mb-2">
-                                    <img class="img-fluid" id="me" src={me} alt="Picture of Kyle Kovacik"></img>
+                                <div class="col-3 float-end mt-0 me-0 ms-3 mb-2 card bg-secondary">
+                                    <div class="card-body p-1">
+                                        <img class="img-fluid" id="me" src={me} alt="Picture of Kyle Kovacik"></img>
+                                    </div>
                                 </div>
                                     <p>
                                         &emsp; My name is Kyle Kovacik and I am a graduate of Purdue West Lafayette with a major in Computer Science 

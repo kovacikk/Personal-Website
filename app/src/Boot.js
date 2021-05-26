@@ -12,6 +12,7 @@ import Forum from './js/Forum.js';
 import Contact from './js/Contact.js';
 import Serve from './js/Serve.js';
 import Music from './js/Music.js';
+import Projects from './js/Projects.js'
 
 class Boot extends Component {
     constructor(props) {
@@ -34,8 +35,8 @@ class Boot extends Component {
                                 <span class="fs-4">Links</span>
                             </a>
                             <hr/>
-                            
-                            <ul class="nav nav-pills flex-column collapse show" id="collapseSidebar" aria-expanded="false">
+                            <div class="collapse show" id="collapseSidebar" aria-expanded="true">
+                            <ul class="nav nav-pills flex-column">
                             <Switch>
                                     <Route path="/projects">
                                     <li class="nav-item">
@@ -128,7 +129,7 @@ class Boot extends Component {
                                 </Switch>
                                 <hr/>
                             </ul>
-                            
+                            </div>
                         </div>
                         <div class="row p-3"></div>
 
@@ -152,6 +153,9 @@ class Boot extends Component {
                                 <div class="col">
                                 
                                 <Switch>
+                                    <Route path="/projects">
+                                        <Projects/>
+                                    </Route>
                                     <Route path="/about">
                                         <About/>
                                     </Route>
