@@ -178,12 +178,19 @@ class Boot extends Component {
                             <div class="row" id="spacer">
 
                             </div>
-                            <div class="row mt-auto mb-2" id="footer">
+                            <div class="row mt-auto mb-2 pt-3" id="footer">
                                 <footer class="footer mt-auto py-3 bg-dark gy-5" id="footer">
                                     <div class="container-fluid">
                                         <div class="row bottom-align-text">
                                             <div class="col" align="center">
-                                                <p class="text-light mb-1">For more information, check out my Github and LinkedIn pages in the About Tab</p>
+                                                <Switch>
+                                                    <Route path="/about">
+                                                        <p class="text-light mb-1">For more information, check out my Github and Link... oh wait you're already here. Check above.</p>
+                                                    </Route>
+                                                    <Route path="/">
+                                                        <p class="text-light mb-1">For more information, check out my Github and LinkedIn pages in the About Tab</p>
+                                                    </Route>
+                                                </Switch>
                                             </div>
                                         </div>
                                     </div>
