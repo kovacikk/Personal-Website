@@ -10,17 +10,29 @@ class Project extends Component {
     collapseId = this.collapseLink.substring(1);
 
     collapsed = true;
-    
+
+
     constructor(props) {
         super(props);
 
             this.state = {collapsed: true};
             this.updateArrow = this.updateArrow.bind(this);
+
+            console.log(this.linkArray);
       }
 
     linkFunction() {
         if (this.props.link != '-1') {
-            return <a href={this.props.link} target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-outline-dark">{this.props.link}</button></a>
+            const linkArray = this.props.link.split(/(\s+)/).filter( e => e.trim().length > 0);
+            const linkElement = []
+
+            var index;
+            var link;
+            for (index in linkArray) {
+                linkElement.push(<a class="m-1" href={linkArray[index]} target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-outline-dark">{linkArray[index]}</button></a>)
+            }
+
+            return linkElement;
         }
         else {
             return (null);
@@ -47,7 +59,7 @@ class Project extends Component {
             <div class="row mt-2 m-2">
                 <div class="card bg-light">
                     <div class="card-body row">
-                        <div class="row"  data-bs-toggle="collapse" onClick={this.updateArrow} href={this.collapseLink} aria-expanded="true">
+                        <div class="row"  data-bs-toggle="collapse" onClick={this.updateArrow} href={this.collapseLink} aria-expanded="true" style={{cursor: "pointer"}}>
                             <div class="col-11 col-sm-10 col-md-11 col-lg-11">
                                 <p>
                                     <a class="align-items-center text-dark text-decoration-none">
@@ -55,7 +67,7 @@ class Project extends Component {
                                     </a>
                                 </p>
                             </div>
-                            <div class="col-1 align-self-center" data-bs-toggle="collapse" href={this.collapseLink} aria-expanded="true">
+                            <div class="col-1 align-self-center">
                                 {this.state.collapsed && (<i class="bi bi-caret-down fs-1"></i>)}
                                 {!this.state.collapsed && (<i class="bi bi-caret-up fs-1"></i>)}
                             </div>

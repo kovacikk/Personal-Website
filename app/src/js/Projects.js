@@ -67,28 +67,50 @@ class Projects extends Component {
                 />
                 <Project 
                     name={"BigBox"}
-                    languages={"HTML, CSS BootStrap, Django, MySQL"}
+                    languages={"HTML, CSS, BootStrap, Python, Django, MySQL"}
                     description="BigBox was a group project of five where we created an odd job posting website targeted towards younger ages.
                         Users could create accounts and post job offers as well as accept other's offers. I primarily focused on the HTML, CSS, and Bootstrap 
                         elements of the site with some database querying."
                     link="https://github.com/kovacikk/BigBox"
                 />
                 <Project 
-                    name={"Temp Project"}
-                    languages={"c"}
-                    description="very funny temp project"
+                    name={"Perceptron and Naive Bayes Project"}
+                    languages={"Python"}
+                    description="Using a movie review dataset, I created both the perceptron and naive bayes algorithms to generate models. Then, these models were used to
+                        classify ratings for movies for users."
                     link="-1"
                 />
                 <Project 
-                    name={"Temp Project"}
-                    languages={"c"}
-                    description="very funny temp project"
-                    link="-1"
+                    name={"Chord Creator"}
+                    languages={"HTML, CSS, JavaScript"}
+                    description="Chord Creator is a website where you can specify certain criteria and musical chord progressions would be generated. It was built with Tone.js
+                        to play the chord progressions."
+                    link="https://github.com/kovacikk/Chord-Creator"
+                />
+                <Project 
+                    name={"Strombot"}
+                    languages={"Python"}
+                    description="A discord bot written for my friends personal discord server. It mostly serves to post images and videos uploaded that are uploaded by users to a
+                        google drive. Includes basic searching, music playback, and command statistic tracking."
+                    link="https://github.com/kovacikk/stromBot"
+                />
+                <Project 
+                    name={"PAC-VS"}
+                    languages={"HTML, CSS, JavaScript, Python, Django"}
+                    description="PAC-VS is an online versus game of Pacman where one player plays as Pacman and the other all four ghosts. It was built with a team of three in Django
+                        with the game logic written in JavaScript. Used peer-to-peer connections between both players."
+                    link="https://github.com/kovacikk/PAC-VS"
+                />
+                <Project 
+                    name={"CS-251 Projects 1-4"}
+                    languages={"Java"}
+                    description="A collection of Projects that cover the implementation of common data structures. A Stack, an Infix Evaluator, HashTables, Quick Sort, and Graph Searching."
+                    link="https://github.com/kovacikk/CS-251---Project-1 https://github.com/kovacikk/CS-251-Project-2 https://github.com/kovacikk/CS-251-Project-3 https://github.com/kovacikk/CS-251-Project-4"
                 />
 
                 
                 
-                <div class="row mt-2 mb-2">
+                <div class="row mt-3 mb-2">
                     <div class="col-sm-7 col-md-5 col-lg-3">
                         <div class="card text-white bg-secondary">
                             <div class="card-body align-items-center d-flex justify-content-center p-1">

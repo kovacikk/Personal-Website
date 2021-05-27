@@ -5,12 +5,10 @@ import {
     Route,
     Link
   } from "react-router-dom";
+
 import './css/Boot.css';
 import Home from './js/Home.js';
 import About from './js/About.js';
-import Forum from './js/Forum.js';
-import Contact from './js/Contact.js';
-import Serve from './js/Serve.js';
 import Music from './js/Music.js';
 import Projects from './js/Projects.js'
 
@@ -40,15 +38,15 @@ class Boot extends Component {
                 <div class="row">
                     <div class="col-sm-4 col-md-3 col-lg-2 gy-5 gx-5" id="sidebar">
                         
-                        <div class="row gx-1 p-3 text-light bg-dark sidebar">  
-                            <div class="col-11 col-sm-10 col-md-10 col-lg-9"  data-bs-toggle="collapse" onClick={this.updateArrow} href="#collapseSidebar" aria-expanded="true">
+                        <div class="row gx-1 p-3 text-light bg-dark sidebar rounded">  
+                            <div class="col-11 col-sm-10 col-md-10 col-lg-9"  data-bs-toggle="collapse" onClick={this.updateArrow} href="#collapseSidebar" aria-expanded="true" style={{cursor: "pointer"}}>
                                 <a class="align-items-center text-light text-decoration-none">
                                     <span class="fs-4">Links</span>
                                 </a>
                             </div>
-                            <div class="col-1 align-self-center"  data-bs-toggle="collapse" onClick={this.updateArrow} href="#collapseSidebar" aria-expanded="true">
-                                {this.state.collapsed && (<i class="bi bi-caret-down fs-3"></i>)}
-                                {!this.state.collapsed && (<i class="bi bi-caret-up fs-3"></i>)}
+                            <div class="col-1 align-self-center"  data-bs-toggle="collapse" onClick={this.updateArrow} href="#collapseSidebar" aria-expanded="true" style={{cursor: "pointer"}}>
+                                {!this.state.collapsed && (<i class="bi bi-caret-down fs-3"></i>)}
+                                {this.state.collapsed && (<i class="bi bi-caret-up fs-3"></i>)}
                             </div>
                             <hr/>
                             <div class="collapse show" id="collapseSidebar" aria-expanded="true">
@@ -153,7 +151,7 @@ class Boot extends Component {
                     <div class="col" id="center">
                         <div class="container d-flex flex-column h-100">
                             <div class="row align-items-start" id="header">
-                                <nav class="navbar navbar-expand navbar-dark bg-dark gy-2">
+                                <nav class="navbar navbar-expand navbar-dark bg-dark gy-2 rounded">
                                     <div class="container-fluid">
                                             <div class="collapse navbar-collapse justify-content-md-center">
                                                 <ul class="navbar-nav">
@@ -172,20 +170,11 @@ class Boot extends Component {
                                     <Route path="/projects">
                                         <Projects/>
                                     </Route>
-                                    <Route path="/about">
-                                        <About/>
-                                    </Route>
-                                    <Route path="/forum">
-                                        <Forum/>
-                                    </Route>
-                                    <Route path="/contact">
-                                        <Contact/>
-                                    </Route>
-                                    <Route path="/serve/">
-                                        <Serve/>
-                                    </Route>
                                     <Route path="/music">
                                         <Music/>
+                                    </Route>
+                                    <Route path="/about">
+                                        <About/>
                                     </Route>
                                     <Route path="/">
                                         <Home />
@@ -199,7 +188,7 @@ class Boot extends Component {
 
                             </div>
                             <div class="row mt-auto mb-2 pt-3" id="footer">
-                                <footer class="footer mt-auto py-3 bg-dark gy-5" id="footer">
+                                <footer class="footer mt-auto py-3 bg-dark gy-5 rounded" id="footer">
                                     <div class="container-fluid">
                                         <div class="row bottom-align-text">
                                             <div class="col" align="center">
