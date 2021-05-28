@@ -10,7 +10,8 @@ import './css/Boot.css';
 import Home from './js/Home.js';
 import About from './js/About.js';
 import Music from './js/Music.js';
-import Projects from './js/Projects.js'
+import Projects from './js/Projects.js';
+import Serve from'./js/Serve.js';
 
 class Boot extends Component {
     
@@ -175,6 +176,9 @@ class Boot extends Component {
                                     </Route>
                                     <Route path="/about">
                                         <About/>
+                                    </Route>
+                                    <Route path="/serve">
+                                        <Serve/>
                                     </Route>
                                     <Route path="/">
                                         <Home />

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 //import '../css/Serve.css';
+const json = require('./projects.json')
 
 class Serve extends Component {
     constructor(props) {
@@ -25,18 +26,23 @@ class Serve extends Component {
         return body;
     };
 
+    // Submit 
     handleSubmit = async e => {
         e.preventDefault();
-        const response = await fetch('/server/message/', {
+        const response = await fetch('/server/projects/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ post: this.state.post }),
         });
-        const body = await response.text();
-        
-        this.setState({ responseToPost: body });
+        // Wait for Promise to Resolve
+        (await response).json().then(data => {
+            console.log(data);
+
+            
+        })
+        this.setState({ responseToPost: "got" });
       };
 
     render() {
