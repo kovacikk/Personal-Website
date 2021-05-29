@@ -1,5 +1,10 @@
+/*
+    Project.js
+    - Contains helper functions and elements for Projects.js
+
+*/
+
 import React, { Component } from 'react';
-import '../css/Project.css';
 
 
 // Renders Project Cards with Collapse Functionality

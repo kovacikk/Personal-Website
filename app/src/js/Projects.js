@@ -1,5 +1,11 @@
+/*
+    Projects.js
+    - Content body of Projects Tab
+    - Uses Project.js for helper functions and elements
+
+*/
+
 import React, { Component } from 'react';
-import '../css/Projects.css';
 import Project from './Project.js'
 
 
@@ -19,7 +25,7 @@ class Projects extends Component {
         this.firstSubmit();
     }
 
-    // Submit
+    // Submit when page loads, connects to backend
     firstSubmit = async e => {
         const response = await fetch('/server/python/', {
         method: 'POST',
@@ -34,7 +40,7 @@ class Projects extends Component {
         })
     };
 
-    // Submit
+    // Submit when users posts, connects to backend
     handleSubmit = async e => {
         e.preventDefault();
         const response = await fetch('/server/python/', {

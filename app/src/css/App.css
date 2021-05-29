@@ -1,0 +1,24 @@
+/* 
+    App.css
+*/
+
+.navbar {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+
+#center {
+    min-height: 100vh;
+}
+
+#headerText {
+    font-size: 2.5rem;
+}
+
+.side-text {
+    color:rgb(235, 235, 235);
+}
+
+.nav-pills .nav-link.active {
+    background-color: #727070 !important;
+}

@@ -1,5 +1,10 @@
+/*
+    Music.js
+    - Content body of Music Tab
+
+*/
+
 import React, { Component } from 'react';
-import '../css/Music.css';
 import chair from '../img/Chair.jpg';
 
 class Music extends Component {

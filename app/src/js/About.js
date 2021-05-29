@@ -1,5 +1,9 @@
+/*
+    About.js
+    - Content Body of About Tab
+*/
+
 import React, { Component } from 'react';
-//import '../css/About.css';
 import me from '../img/Kyle_Kovacik.jpg';
 
 class About extends Component {

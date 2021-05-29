@@ -15,14 +15,14 @@ basepath = os.path.dirname(__file__)
 def getDict():
 
     # Return TfIdf Dict and Date if pickle file exists
-    if os.path.isfile('./projectsDict.pickle'):
-        with open(os.path.join(basepath, './projectsDict.pickle'), 'rb') as file:
+    if os.path.isfile('../pickle/projectsDict.pickle'):
+        with open(os.path.join(basepath, '../pickle/projectsDict.pickle'), 'rb') as file:
             projectsDict = pickle.load(file)
             return projectsDict
     # Pickle file does not exist create them
     else:
         projectsDict = calculateTfIdf()
-        with open(os.path.join(basepath, './projectsDict.pickle'), 'wb') as file:
+        with open(os.path.join(basepath, '../pickle/projectsDict.pickle'), 'wb') as file:
             pickle.dump(projectsDict, file, protocol=pickle.HIGHEST_PROTOCOL)
         return projectsDict
 
@@ -123,14 +123,14 @@ def getProjectJson(data):
 # Loads Default Date Sorted Projects List
 def getDefaultProjects():
     # Return Projects if pickle file exists
-    if os.path.isfile('./projectsDefault.pickle'):
-        with open(os.path.join(basepath, './projectsDefault.pickle'), 'rb') as file:
+    if os.path.isfile('../pickle/projectsDefault.pickle'):
+        with open(os.path.join(basepath, '../pickle/projectsDefault.pickle'), 'rb') as file:
             projectsDefault = pickle.load(file)
             return projectsDefault
     # Pickle file does not exist create it
     else:
         projectsDefault = getProjectsDefault()
-        with open(os.path.join(basepath, './projectsDefault.pickle'), 'wb') as file:
+        with open(os.path.join(basepath, '../pickle/projectsDefault.pickle'), 'wb') as file:
             pickle.dump(projectsDefault, file, protocol=pickle.HIGHEST_PROTOCOL)
         return projectsDefault
 
