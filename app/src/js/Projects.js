@@ -8,32 +8,15 @@ class Projects extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tick : <i class="bi bi-chevron-down"></i>,
             projects : null,
             post : "",
         }
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.updateDropdown = this.updateDropdown.bind(this);
     };
 
     // Load all projects to start
     componentDidMount = async e => {
         this.firstSubmit();
-    }
-
-
-    updateDropdown(direction) {
-        console.log(direction)
-        if (direction == "ascending") {
-            this.setState(prevState => ({
-                tick: <i class="bi bi-chevron-up"></i>,
-            }));
-        }
-        else {
-            this.setState(prevState => ({
-                tick: <i class="bi bi-chevron-down"></i>,
-            }));
-        }
     }
 
     // Submit
@@ -69,7 +52,6 @@ class Projects extends Component {
 
     // Update Projects
     updateProjects(data) {
-        console.log(data);
         const projectsList = []
         for (let i in data) {
             
@@ -97,11 +79,7 @@ class Projects extends Component {
                                 <form class="input-group" onSubmit={this.handleSubmit}>
                                     <h3 class="ms-1">Projects</h3>
                                     <input value={this.state.post} onChange={e => this.setState({ post: e.target.value})} type="text" class="form-control ms-3 me-2" placeholder="Search"  aria-label="Search" aria-describedby="Project Search"/>
-                                    <button class="btn btn-outline-dark text-white rounded" type="button" data-bs-toggle="dropdown" aria-expanded="false">Sort By: Date {this.state.tick}</button>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" onClick={() => this.updateDropdown("ascending")} style={{cursor: "pointer"}}>Date Ascending</a></li>
-                                        <li><a class="dropdown-item" onClick={() => this.updateDropdown("descending")} style={{cursor: "pointer"}}>Date Descending</a></li>
-                                    </ul>
+                                    <button class="btn btn-outline-dark text-white rounded ps-4 pe-4" type="submit" >Search</button>
                                 </form>
                             </div>
                         </div>

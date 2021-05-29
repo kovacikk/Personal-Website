@@ -2,7 +2,7 @@
     {
        "name": "Personal Website",
        "languages": [ "Node.js","React.js","HTML","CSS","MySQL","BootStrap" ],
-       "description": "This website you are on right now. This website is built to host information about myself while testing various web technologies. Tests using node, react, and querying to a database as well as BootStrap to make everything look nice.t",
+       "description": "This website you are on right now. This website is built to host information about myself while testing various web technologies. Tests using node, react, and querying to a database as well as BootStrap to make everything look nice.",
        "link": [ "https://github.com/kovacikk/Node-React-Test" ],
        "date": "5/30/21"
     }
@@ -28,7 +28,7 @@
        "languages": [ "C", "C++", "Lex", "Yacc" ],
        "description": "The Shell Project was a project where I created a complete shell using C, C++ and Lex and Yacc tools. The shell also has subshell, cursor movement, and other common features.",
        "link": [ "-1" ],
-       "date": "5/1/20"
+       "date": "5/1/19"
     }
         ,
     {
@@ -44,7 +44,7 @@
        "languages": [ "C" ],
        "description": "A project where the malloc memory allocation program was implemented in C. Also, included memory error management.",
        "link": [ "-1" ],
-       "date": "2/1/20"
+       "date": "2/1/19"
     }
         ,
     {

@@ -233,17 +233,12 @@ function prepareJson() {
 
 //Test Python
 app.post('/server/python/', async function(req, res) {
-	console.log("in javascript python");
-
-	console.log(req.body.post)
 
 	const { spawn } = require('child_process');
-	const process = spawn('python', ['./test.py', req.body.post]);
+	const process = spawn('python', ['./python/projects.py', req.body.post]);
 
 	process.stdout.on('data', function(data) {
-		//console.log(data.toString());
 		data = data.toString();
-		console.log(data);
 		res.json(data);
 	});
 })
