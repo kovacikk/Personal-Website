@@ -32,7 +32,7 @@ class About extends Component {
                         <div class="card-body">
                                 <div class="col-3 float-end mt-0 me-0 ms-3 mb-2 card bg-secondary">
                                     <div class="card-body p-1">
-                                        <img class="img-fluid" id="me" src={me} alt="Picture of Kyle Kovacik"></img>
+                                        <img class="img-fluid" id="me" src={me} alt="Kyle Kovacik"></img>
                                     </div>
                                 </div>
                                     <p>

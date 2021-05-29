@@ -54,7 +54,7 @@ class Music extends Component {
                         <div class="card-body p-1">
                             <div class="col-3 float-start mt-1 me-3 ms-0 mb-2 card bg-secondary">
                                     <div class="card-body p-1">
-                                        <img class="img-fluid" id="chair" src={chair} alt="Picture of Kyle Kovacik"></img>
+                                        <img class="img-fluid" id="chair" src={chair} alt="Chair Album Art"></img>
                                     </div>
                             </div>
                             <p class="mt-3">

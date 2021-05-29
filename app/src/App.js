@@ -1,10 +1,9 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component  } from 'react';
 import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
-  } from "react-router-dom";
+} from "react-router-dom";
 
 import './css/App.css';
 import Home from './js/Home.js';
@@ -39,12 +38,12 @@ class App extends Component {
                     <div class="col-sm-4 col-md-3 col-lg-2 gy-5 gx-5" id="sidebar">
                         
                         <div class="row gx-1 p-3 text-light bg-dark sidebar rounded">  
-                            <div class="col-11 col-sm-10 col-md-10 col-lg-9"  data-bs-toggle="collapse" onClick={this.updateArrow} href="#collapseSidebar" aria-expanded="true" style={{cursor: "pointer"}}>
-                                <a class="align-items-center text-light text-decoration-none">
+                            <div class="col-11 col-sm-10 col-md-10 col-lg-9"  data-bs-toggle="collapse" onClick={this.updateArrow} href="/#collapseSidebar" aria-expanded="true" style={{cursor: "pointer"}}>
+                                <a href={() => false} class="align-items-center text-light text-decoration-none">
                                     <span class="fs-4">Links</span>
                                 </a>
                             </div>
-                            <div class="col-1 align-self-center"  data-bs-toggle="collapse" onClick={this.updateArrow} href="#collapseSidebar" aria-expanded="true" style={{cursor: "pointer"}}>
+                            <div class="col-1 align-self-center"  data-bs-toggle="collapse" onClick={this.updateArrow} href="/#collapseSidebar" aria-expanded="true" style={{cursor: "pointer"}}>
                                 {!this.state.collapsed && (<i class="bi bi-caret-down fs-3"></i>)}
                                 {this.state.collapsed && (<i class="bi bi-caret-up fs-3"></i>)}
                             </div>

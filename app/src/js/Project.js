@@ -27,7 +27,7 @@ class Project extends Component {
     languagesFunction() {
         var languagesString = "";
         for (let index in this.props.languages) {
-            if (index == this.props.languages.length - 1) {
+            if (index === this.props.languages.length - 1) {
                 languagesString = languagesString + this.props.languages[index]
             }
             else {
@@ -39,11 +39,10 @@ class Project extends Component {
     }
 
     linkFunction() {
-        if (this.props.link.length > 0 && this.props.link[0] != "-1") {
+        if (this.props.link.length > 0 && this.props.link[0] !== "-1") {
             const linkElement = []
 
             var index;
-            var link;
             for (index in this.props.link) {
                 linkElement.push(<a class="m-1" href={this.props.link[index]} target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-outline-dark">{this.props.link[index]}</button></a>)
             }
@@ -56,7 +55,7 @@ class Project extends Component {
     }
 
     linkPadding() {
-        if (this.props.link != '-1') {
+        if (this.props.link !== '-1') {
             return "card card-body";
         }
         else {
@@ -78,7 +77,7 @@ class Project extends Component {
                         <div class="row"  data-bs-toggle="collapse" onClick={this.updateArrow} href={this.collapseLink} aria-expanded="true" style={{cursor: "pointer"}}>
                             <div class="col-11 col-sm-10 col-md-11 col-lg-11">
                                 <p>
-                                    <a class="align-items-center text-dark text-decoration-none">
+                                    <a class="align-items-center text-dark text-decoration-none" href={() => false}>
                                         <span class="fs-4">{this.props.name}</span><p>- {this.languagesFunction()}</p>
                                     </a>
                                 </p>
