@@ -13,7 +13,9 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "formidable": "^1.2.2",
-    "line-reader": "^0.4.0"
+    "line-reader": "^0.4.0",
+    "python": "0.0.4",
+    "python3": "0.0.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.3",

@@ -15,7 +15,7 @@ app.post('/server/python/', async function(req, res) {
 
 	const { spawn } = require('child_process');
 	const process = spawn('python', ['./python/projects.py', req.body.post]);
-
+	
 	process.stdout.on('data', function(data) {
 		data = data.toString();
 		res.json(data);
