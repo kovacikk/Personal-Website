@@ -20,5 +20,8 @@ RUN pip install numpy
 # add app
 COPY . ./
 
+# expose port
+EXPOSE $PORT
+
 # start app
 CMD ["npm", "start"]

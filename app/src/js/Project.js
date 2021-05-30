@@ -27,7 +27,7 @@ class Project extends Component {
     languagesFunction() {
         var languagesString = "";
         for (let index in this.props.languages) {
-            if (index === this.props.languages.length - 1) {
+            if (index == this.props.languages.length - 1) {
                 languagesString = languagesString + this.props.languages[index]
             }
             else {
@@ -39,7 +39,7 @@ class Project extends Component {
     }
 
     linkFunction() {
-        if (this.props.link.length > 0 && this.props.link[0] !== "-1") {
+        if (this.props.link.length > 0 && this.props.link[0] != "-1") {
             const linkElement = []
 
             var index;
@@ -55,7 +55,7 @@ class Project extends Component {
     }
 
     linkPadding() {
-        if (this.props.link !== '-1') {
+        if (this.props.link != '-1') {
             return "card card-body";
         }
         else {
