@@ -3,7 +3,7 @@
        "name": "Personal Website",
        "languages": [ "Node.js","React.js","HTML","CSS","MySQL","BootStrap" ],
        "description": "This website you are on right now. This website is built to host information about myself while testing various web technologies. Tests using node, react, and querying to a database as well as BootStrap to make everything look nice.",
-       "link": [ "https://github.com/kovacikk/Node-React-Test" ],
+       "link": [ "https://github.com/kovacikk/Personal-Website" ],
        "date": "5/30/21"
     }
         ,
